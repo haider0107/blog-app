@@ -6,6 +6,7 @@ import Pagination from "../../components/Pagination.astro";
 
 // utils imports
 import { formatBlogPosts } from "../../js/utils";
+import CategoryCloud from "../../components/CategoryCloud.astro";
 
 
 
@@ -42,4 +43,8 @@ const { page } = Astro.props;
     </div>
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
   </section>
+  <aside class="container" aria-label="Blog categories">
+    <h2 class="h3">Blog Categories</h2>
+    <CategoryCloud showCount={true}/>
+  </aside>
 </MainLayout>
