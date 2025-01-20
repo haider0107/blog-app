@@ -1,14 +1,26 @@
 ---
+import { getCollection } from "astro:content";
 import { formatBlogPosts, slugify } from "../js/utils";
 
-const matches = import.meta.glob("../pages/blog/*.md", { eager: true });
-const allPosts = Object.values(matches);
+interface PostData {
+  category: string;
+}
+
+interface FormattedPost {
+  data: PostData;
+}
+
+type CategoryCount = Record<string, number>;
+
+const allPosts = await getCollection('blog');
+
 const formattedPosts = formatBlogPosts(allPosts);
+
 const allCategories = formattedPosts
-  .map((cat) => cat.frontmatter.category.toLowerCase())
+  .map((cat : FormattedPost) => cat.data.category.toLowerCase())
   .flat();
 
-const processedCats = allCategories.reduce((acc, category) => {
+const processedCats = allCategories.reduce((acc : CategoryCount, category : string) => {
   // check if the category exists in the acc
   const value = acc[category] || 0;
 

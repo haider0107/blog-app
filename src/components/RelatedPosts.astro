@@ -2,19 +2,30 @@
 import { slugify, formatDate } from "../js/utils";
 
 const { relatedPosts } = Astro.props;
+
+interface PostData {
+  title: string;
+  author: string;
+  date: string; // or Date, depending on the format
+}
+
+interface Post {
+  id: string;
+  data: PostData;
+}
 ---
 
 {
-  relatedPosts.map((post) => (
+  relatedPosts.map((post: Post) => (
     <div class="post">
       <h3 class="h4">
-        <a href={post.url}>{post.frontmatter.title}</a>
+        <a href={`/blog/${post.id}/`}>{post.data.title}</a>
       </h3>
       <small>
-        <a href={`/author/${slugify(post.frontmatter.author)}/`}>
-          {post.frontmatter.author}
+        <a href={`/author/${slugify(post.data.author)}/`}>
+          {post.data.author}
         </a>{" "}
-        • {formatDate(post.frontmatter.date)}
+        • {formatDate(post.data.date)}
       </small>
     </div>
   ))

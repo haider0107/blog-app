@@ -7,15 +7,59 @@ import Pagination from "../../components/Pagination.astro";
 // utils imports
 import { formatBlogPosts } from "../../js/utils";
 import CategoryCloud from "../../components/CategoryCloud.astro";
+import { getCollection } from "astro:content";
 
+// Types
+// interface Page<T = any> {
+//   /** array containing the page’s slice of data that you passed to the paginate() function */
+//   data: T[];
+//   /** metadata */
+//   /** the count of the first item on the page, starting from 0 */
+//   start: number;
+//   /** the count of the last item on the page, starting from 0 */
+//   end: number;
+//   /** total number of results */
+//   total: number;
+//   /** the current page number, starting from 1 */
+//   currentPage: number;
+//   /** number of items per page (default: 10) */
+//   size: number;
+//   /** number of last page */
+//   lastPage: number;
+//   url: {
+//     /** url of the current page */
+//     current: string;
+//     /** url of the previous page (if there is one) */
+//     prev: string | undefined;
+//     /** url of the next page (if there is one) */
+//     next: string | undefined;
+//     /** url of the first page (if the current page is not the first page) */
+//     first: string | undefined;
+//     /** url of the last page (if the current page in not the last page) */
+//     last: string | undefined;
+//   };
+// }
 
+// interface PostData {
+//   title: string;
+//   description: string;
+//   date: Date;
+//   author: string;
+//   image: {
+//     src: string;
+//     alt: string;
+//   };
+//   draft: boolean;
+//   category: string;
+//   updatedDate?: Date | undefined;
+// }
 
 // const allPosts = await Astro.glob("./*.md");
 // const formattedPosts = formatBlogPosts(allPosts);
 
-export async function getStaticPaths({ paginate }) {
-  const matches = import.meta.glob("./*.md", { eager: true });
-  const allPosts = Object.values(matches);
+export async function getStaticPaths({ paginate }:any) {
+  const allPosts = await getCollection('blog');
+
   const formattedPosts = formatBlogPosts(allPosts);
 
   return paginate(formattedPosts, {
@@ -23,7 +67,7 @@ export async function getStaticPaths({ paginate }) {
   });
 }
 
-const { page } = Astro.props;
+const { page }: { page: any } = Astro.props;
 
 ---
 
@@ -32,10 +76,10 @@ const { page } = Astro.props;
     <h1 class="h1">New Blog Posts</h1>
     <div class="post-container">
       {
-        page.data.map((post) => (
+        page.data.map((post:any) => (
           <PostCard
-            frontmatter={post.frontmatter}
-            url={post.url}
+            data={post.data}
+            url={`/blog/${post.id}`}
             tagType="h2"
           />
         ))

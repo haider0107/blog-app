@@ -7,11 +7,11 @@ import Link from "./Link.astro";
 import { slugify, formatDate } from "../js/utils";
 import { Image } from "astro:assets";
 
-const { frontmatter, url, tagType } = Astro.props;
+const { data, url, tagType } = Astro.props;
 
 const Tag = tagType;
 
-const { title, date, author, image, description, category } = frontmatter;
+const { title, date, author, image, description, category } = data;
 ---
 
 <article class="card">

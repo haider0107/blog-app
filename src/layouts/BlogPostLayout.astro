@@ -3,31 +3,59 @@
 import PostHeader from "../components/PostHeader.astro";
 import CategoryCloud from "../components/CategoryCloud.astro";
 import MainLayout from "./MainLayout.astro";
-import RelatedPosts from "../components/RelatedPosts.astro";;
+import RelatedPosts from "../components/RelatedPosts.astro";
+import { getCollection } from 'astro:content';
+
+// Types
+interface PostData {
+  category: string;
+  title: string;
+}
+
+interface Post {
+  data: PostData;
+}
+
 
 // util imports
 import { formatBlogPosts } from "../js/utils";
 
-const { frontmatter } = Astro.props;
+const { data } = Astro.props;
 
-const { title, description, date, category, author, image } = frontmatter;
+const { title, description, date, category, author, image } = data;
 
-const matches = import.meta.glob("../pages/blog/*.md", { eager: true });
-const allPosts = Object.values(matches);
+const allPosts = await getCollection('blog');
+
+// const matches = import.meta.glob("../pages/blog/*.md", { eager: true });
+// const allPosts = Object.values(matches);
 
 const formattedPosts = formatBlogPosts(allPosts, {
   sortByDate: false,
 });
 const relatedPosts = formattedPosts
   .filter(
-    (post) =>
-      post.frontmatter.category.toLowerCase() === category.toLowerCase() &&
-      post.frontmatter.title !== title
+    (post:Post) =>
+      post.data.category.toLowerCase() === category.toLowerCase() &&
+      post.data.title !== title
   )
   .slice(0, 3);
+
+
+// Get all entries from a collection.
+// Requires the name of the collection as an argument.
+
+
+console.log(allPosts[0]);
+
 ---
 
-<MainLayout {title} {description}>
+<MainLayout 
+  {title} 
+  {description} 
+  image={data.image}
+  {data}
+  robots={data.robots}
+>
   <PostHeader {title} {description} {date} {category} {image} {author} />
   <div class="post-content">
     <div class="content">

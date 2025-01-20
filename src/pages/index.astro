@@ -6,13 +6,16 @@ import Link from "../components/Link.astro";
 
 // utils imports
 import { formatBlogPosts } from "../js/utils";
+import { getCollection } from "astro:content";
 
-const matches = import.meta.glob("./blog/*.md", { eager: true });
-const allPosts = Object.values(matches);
+const allPosts = await getCollection('blog');
 
 const formattedPosts = formatBlogPosts(allPosts, {
   limit: 3,
 });
+
+console.log(allPosts);
+
 ---
 
 <MainLayout title="My Blog">
@@ -38,8 +41,8 @@ const formattedPosts = formatBlogPosts(allPosts, {
       {
         formattedPosts.map((post) => (
           <PostCard
-            frontmatter={post.frontmatter}
-            url={post.url}
+            data={post.data}
+            url={`/blog/${post.id}`}
             tagType="h3"
           />
         ))

@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: Debounce - Optimizing API call in JS
 date: 2023-12-06
 author: Kushal Bhargava

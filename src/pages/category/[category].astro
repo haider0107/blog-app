@@ -5,6 +5,7 @@ import PostCard from "../../components/PostCard.astro";
 
 // utils
 import { slugify, formatBlogPosts } from "../../js/utils";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
   return [
@@ -38,12 +39,11 @@ export async function getStaticPaths() {
 const { category } = Astro.params;
 const { name } = Astro.props;
 
-const matches = import.meta.glob("../blog/*.md", { eager: true });
-const allPosts = Object.values(matches);
+const allPosts = await getCollection('blog');
 
 const formattedPosts = formatBlogPosts(allPosts);
 const catPosts = formattedPosts.filter(
-  (post) => slugify(post.frontmatter.category) === category
+  (post) => slugify(post.data.category) === category
 );
 ---
 
@@ -54,8 +54,8 @@ const catPosts = formattedPosts.filter(
       {
         catPosts.map((post) => (
           <PostCard
-            frontmatter={post.frontmatter}
-            url={post.url}
+            data={post.data}
+            url={`/blog/${post.id}`}
             tagType="h2"
           />
         ))

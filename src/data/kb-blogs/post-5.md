@@ -1,13 +1,9 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
-title: A Post about Important Items Of Life
-date: 2022-11-20
-author: Darnell McClure
-image: {
-  src: "/images/post-1.jpg",
-  alt: "A picture of a coder",
-}
-description: Have you ever wondered what the most important items of life are? Well, wonder no more!
+title: JavaScript SchmavaScript
+date: 2022-12-05
+author: Victoria Greenfelder
+image: { src: "/images/post-5.jpg", alt: "A picture of a coder" }
+description: This is a blog post about the JavaScript programming language. Like it, love it, hate it, it's here to stay.
 draft: false
 category: Reference Docs
 ---
