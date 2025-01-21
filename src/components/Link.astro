@@ -10,6 +10,7 @@ interface Props {
     name: string;
     side: "left" | "right";
   };
+  bold?: boolean;
   isFilled?: boolean;
   borderVisible?: boolean;
   classes?: string;
@@ -20,6 +21,7 @@ const {
   href,
   style,
   icon,
+  bold = false,
   isFilled = true,
   borderVisible = false,
   classes,
@@ -43,7 +45,9 @@ const {
     )
   }
 
-  <span>{text}</span>
+  {
+    bold ? <span class="font-bold">{text}</span> : <span>{text}</span>
+  }
 
   {
     icon && icon.side === "right" && (

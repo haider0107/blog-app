@@ -7,7 +7,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font: inherit;
+  /* font: inherit; */
 }
 
 nav :where(ol, ul) {
@@ -34,7 +34,7 @@ h6 {
 /* CSS variables inspired by https://open-props.style/ */
 :root {
   /* colors */
-  --_hue: 235;
+  --_hue: 170;
 
   /* Light Mode */
   --bkg--light: var(--_hue) 25% 97%;
@@ -185,6 +185,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+}
+
+.margin{
+  margin: 10px 0;
+}
+
+.content {
+  padding-left: 15px;
+
+  & pre {
+    border-radius: 8px;
+    padding: 16px; /* Padding around the code */
+    margin: 20px 0;
+  }
+
+  & img {
+    margin: 0 auto;
+    height: 100%;
+    width: 50%;
+  }
+
+  @media (--md) {
+    padding-left: 25px;
+  }
 }
 
 .h1,
@@ -339,6 +363,10 @@ button {
   }
 }
 
+.font-bold{
+  font-weight: 550;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -352,7 +380,7 @@ button {
 .logomark {
   display: grid;
   place-items: center;
-  padding: var(--space-2xs);
+  padding: 0 20px;
 }
 
 [aria-label="Blog pages"] {
@@ -417,6 +445,7 @@ button {
   }
 
   & .content {
+    padding-left: 0;
     display: grid;
     gap: var(--space-xs);
     max-width: var(--content-md);
@@ -467,6 +496,8 @@ button {
   padding: var(--space-md);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
+  height: 100%;
+  padding-top: 0;
 
   & .badge {
     --accent: var(--txt);
@@ -487,6 +518,7 @@ button {
   }
 
   & .content {
+    padding-left: 0;
     display: grid;
     gap: var(--space-xs);
   }

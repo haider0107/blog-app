@@ -15,9 +15,6 @@ const { title, date, author, image, description, category } = data;
 ---
 
 <article class="card">
-  <small>
-    <a href={`/category/${slugify(category)}/`} class="badge">{category}</a>
-  </small>
   <a href={url} aria-hidden="true" tabindex="-1">
     <Image
       src={image.src}
@@ -27,7 +24,6 @@ const { title, date, author, image, description, category } = data;
       format="webp"
       fit="cover"
       quality={80}
-      
     />
   </a>
   <div class="content">
@@ -35,6 +31,9 @@ const { title, date, author, image, description, category } = data;
       <Tag class="h3">
         <a href={url}>{title}</a>
       </Tag>
+      <div class="margin">
+        <a href={`/category/${slugify(category)}/`} class="badge">{category}</a>
+      </div>
       <small>
         by <a href={`/author/${slugify(author)}/`}>{author}</a> • {
           formatDate(date)
