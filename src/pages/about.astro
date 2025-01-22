@@ -1,6 +1,8 @@
 ---
 // component imports
+import { Icon } from "astro-icon/components";
 import Link from "../components/Link.astro";
+import socialData from "../data/socialData";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
@@ -13,19 +15,33 @@ import MainLayout from "../layouts/MainLayout.astro";
       height="330"
     />
     <div class="content">
-      <h1 class="h1">My Blog</h1>
+      <h1 class="h1">About Me</h1>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam quidem
-        tempora beatae mollitia architecto optio sapiente repellendus natus.
-        Minima reiciendis voluptatibus ratione quos exercitationem expedita
-        commodi doloremque. Repellendus nulla nihil animi fuga voluptas amet
-        fugit eveniet voluptates ab labore. Magnam.
+        My name is <b>Kushal Bhargava</b> and I am a versatile Software Engineer and Full Stack Developer who adapts to any tech stack with ease. 
+        Always eager to learn, I stay updated with the latest technologies to build efficient, 
+        user-friendly solutions.
       </p>
-      <Link
-        href="mailto:chris@codinginpublic.dev"
-        style="primary"
-        text="Contact Me"
-      />
+      <div class="social">
+        {
+          socialData.map(ele => (
+            <a href={ele.href}>
+              <Icon name={ele.icon} size={50}/>
+            </a>
+          ))
+        }
+      </div>
+      <div class="social">
+        <Link
+          href=""
+          style="secondary"
+          text="Resume"
+        />
+        <Link
+          href="mailto:kushal.bhargava01@gmail.com"
+          style="primary"
+          text="Contact Me"
+       />
+      </div>
     </div>
   </section>
 </MainLayout>

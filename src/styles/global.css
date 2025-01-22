@@ -377,6 +377,15 @@ button {
   padding-inline: var(--space-md);
 }
 
+.social{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  place-items: center;
+  gap: 10px;
+}
+
 .logomark {
   display: grid;
   place-items: center;
