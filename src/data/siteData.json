@@ -1,8 +1,8 @@
 {
   "title": "My Blog",
-  "description": "My musings about the Astro framework",
+  "description": "Welcome to my blog, where I share insights on life",
   "image": {
-    "src": "/images/image-default.jpg",
+    "src": "/images/image-default.png",
     "alt": "My Blog"
   }
 }

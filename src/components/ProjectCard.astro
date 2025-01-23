@@ -1,0 +1,42 @@
+---
+
+// component imports
+import Link from "./Link.astro";
+
+// utils imports
+import { slugify, formatDate } from "../js/utils";
+import { Image } from "astro:assets";
+
+const { data, url, tagType } = Astro.props;
+
+const Tag = tagType;
+
+const { name, author = "Kushal Bhargava", image, desc } = data;
+---
+
+<article class="card">
+  <a href={url} aria-hidden="true" tabindex="-1">
+    <Image
+      src={image}
+      alt={name}
+      width="400"
+      height="250"
+      format="webp"
+      fit="cover"
+      quality={80}
+    />
+  </a>
+  <div class="content">
+    <div>
+      <Tag class="h3">
+        <a href={url}>{name}</a>
+      </Tag>
+      
+      <small>
+        by <a href={`/author/${slugify(author)}/`}>{author}</a>
+      </small>
+    </div>
+    <p>{desc}</p>
+    <!-- <Link href={url} text="Read Post" style="secondary" /> -->
+  </div>
+</article>

@@ -187,8 +187,43 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-.margin{
+.margin {
   margin: 10px 0;
+}
+
+.skill {
+  & h1 {
+    text-align: center;
+    font-size: var(--fs-2xl);
+    font-weight: 700;
+  }
+}
+
+.project {
+  & h1 {
+    text-align: center;
+    font-size: var(--fs-2xl);
+    font-weight: 700;
+  }
+}
+
+.skill-set {
+  display: flex;
+  flex-direction: column; /* Set the flex direction to column */
+  justify-content: flex-start; /* Align items to the start vertically */
+  align-items: flex-start; /* Align items to the start horizontally */
+  max-width: var(--content-lg); /* Limit the width */
+  margin: 0 auto;
+  gap: var(--space-md);
+}
+
+.skill-view {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next row */
+  gap: var(--space-md); /* Adds a gap between items */
+  justify-content: center; /* Center aligns the items in the row */
+  align-items: center;
+  margin: 0 auto;
 }
 
 .content {
@@ -363,7 +398,7 @@ button {
   }
 }
 
-.font-bold{
+.font-bold {
   font-weight: 550;
 }
 
@@ -377,7 +412,7 @@ button {
   padding-inline: var(--space-md);
 }
 
-.social{
+.social {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -468,6 +503,21 @@ button {
   display: grid;
   gap: var(--space-md);
   align-items: start;
+
+  @media (--md) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (--lg) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.project-container {
+  margin-block: var(--space-md);
+  display: grid;
+  gap: var(--space-md);
+  align-items: center;
 
   @media (--md) {
     grid-template-columns: 1fr 1fr;

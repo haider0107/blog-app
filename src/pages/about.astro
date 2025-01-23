@@ -3,7 +3,10 @@
 import { Icon } from "astro-icon/components";
 import Link from "../components/Link.astro";
 import socialData from "../data/socialData";
+import projectData from "../data/projectData"
 import MainLayout from "../layouts/MainLayout.astro";
+import skillsData from "../data/skillsData";
+import ProjectCard from "../components/ProjectCard.astro";
 ---
 
 <MainLayout title="About" description="My About Page">
@@ -44,4 +47,97 @@ import MainLayout from "../layouts/MainLayout.astro";
       </div>
     </div>
   </section>
+  <section class="container skill" aria-label="Skills">
+    <h1>Skills</h1>
+    <br>
+    <div class="skill-set">
+      <div class="skill-view">
+        {
+          skillsData.frontend.map(ele => (
+          <Link
+          text={ele.name}
+          href=""
+          style="primary"
+          borderVisible={false}
+          isFilled={true}
+          icon={{
+            name: `${ele.icon}`,
+            side: "left",
+          }}
+        />
+          ))
+        }
+      </div>
+      <div class="skill-view">
+        {
+          skillsData.backend.map(ele => (
+          <Link
+          text={ele.name}
+          href=""
+          style="primary"
+          borderVisible={false}
+          isFilled={true}
+          icon={{
+            name: `${ele.icon}`,
+            side: "left",
+          }}
+        />
+          ))
+        }
+      </div>
+      <div class="skill-view">
+        {
+          skillsData.labguage.map(ele => (
+          <Link
+          text={ele.name}
+          href=""
+          style="primary"
+          borderVisible={false}
+          isFilled={true}
+          icon={{
+            name: `${ele.icon}`,
+            side: "left",
+          }}
+        />
+          ))
+        }
+      </div>
+      <div class="skill-view">
+        {
+          skillsData.DataBase.map(ele => (
+          <Link
+          text={ele.name}
+          href=""
+          style="primary"
+          borderVisible={false}
+          isFilled={true}
+          icon={{
+            name: `${ele.icon}`,
+            side: "left",
+          }}
+        />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <br>
+  <br>
+  <section class="container project">
+    <h1>Project</h1>
+    <br>
+    <div class="project-container">
+      {
+        projectData.map(ele => (
+          <ProjectCard 
+            data={ele}
+            url={`${ele.link}`}
+            tagType="h2"
+          />
+        ))
+      }
+    </div>
+  </section>
+  <br>
+  <br>
 </MainLayout>
