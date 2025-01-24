@@ -5,7 +5,7 @@ const navData = [
   },
   {
     name: "Blog",
-    path: "/blog/1",
+    path: "/blog/1/",
   },
 ];
 
