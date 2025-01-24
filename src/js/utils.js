@@ -19,7 +19,7 @@ export function formatBlogPosts(
     filterOutDrafts = true,
     filterOutFuturePosts = true,
     sortByDate = true,
-    limit = undefined,
+    limit = 0,
   } = {}
 ) {
   const filteredPosts = posts.reduce((acc, post) => {
@@ -44,7 +44,7 @@ export function formatBlogPosts(
   }
 
   // limit if number is passed
-  if (typeof limit === "number") {
+  if (limit > 0) {
     return filteredPosts.slice(0, limit);
   }
   return filteredPosts;

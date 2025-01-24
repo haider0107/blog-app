@@ -19,7 +19,6 @@ interface Post {
   id: string;
 }
 
-
 export async function getStaticPaths() {
   const allPosts = await getCollection('blog');
 
@@ -41,7 +40,6 @@ export async function getStaticPaths() {
   });
 }
 
-const { author } = Astro.params;
 const { posts, authorName } = Astro.props;
 ---
 

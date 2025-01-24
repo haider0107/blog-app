@@ -6,45 +6,45 @@ import PostCard from "../../components/PostCard.astro";
 // utils
 import { slugify, formatBlogPosts } from "../../js/utils";
 import { getCollection } from "astro:content";
+import CategoryCloud from "../../components/CategoryCloud.astro";
+
+// Types
+interface PostData {
+  category: string;
+  title: string;
+  author: string;
+}
+
+interface Post {
+  data: PostData;
+  id: string;
+}
 
 export async function getStaticPaths() {
-  return [
-    {
-      params: { category: slugify("Reference Docs") },
-      props: { name: "Reference Docs" },
-    },
-    {
-      params: { category: slugify("General") },
-      props: { name: "General" },
-    },
-    {
-      params: { category: slugify("CSS") },
-      props: { name: "CSS" },
-    },
-    {
-      params: { category: slugify("Astro") },
-      props: { name: "Astro" },
-    },
-    {
-      params: { category: slugify("Artical") },
-      props: { name: "Artical" },
-    },
-    {
-      params: { category: slugify("JavaScript") },
-      props: { name: "JavaScript" },
-    },
+
+  const allPosts = await getCollection('blog');
+
+  const formattedPosts = formatBlogPosts(allPosts);
+  const allCategores = [
+    ...new Set(formattedPosts.map((post:Post) => post.data.category).flat()),
   ];
+  return allCategores.map((categorey) => {
+    const authorPosts = formattedPosts.filter(
+      (post:Post) => post.data.category === categorey
+    );
+    return {
+      params: { category: slugify(categorey) },
+      props: {
+        name: categorey,
+        posts: authorPosts,
+      },
+    };
+  });
 }
 
 const { category } = Astro.params;
-const { name } = Astro.props;
+const { name,posts } = Astro.props;
 
-const allPosts = await getCollection('blog');
-
-const formattedPosts = formatBlogPosts(allPosts);
-const catPosts = formattedPosts.filter(
-  (post) => slugify(post.data.category) === category
-);
 ---
 
 <MainLayout title={name}>
@@ -52,7 +52,7 @@ const catPosts = formattedPosts.filter(
     <h1 class="h1">Posts about <span>{name}</span></h1>
     <div class="post-container">
       {
-        catPosts.map((post) => (
+        posts.map((post:Post) => (
           <PostCard
             data={post.data}
             url={`/blog/${post.id}`}
@@ -62,4 +62,8 @@ const catPosts = formattedPosts.filter(
       }
     </div>
   </section>
+  <aside class="container" aria-label="Blog categories">
+    <h2 class="h3">Blog Categories</h2>
+    <CategoryCloud showCount={true}/>
+  </aside>
 </MainLayout>

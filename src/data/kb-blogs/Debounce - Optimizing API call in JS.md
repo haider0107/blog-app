@@ -2,7 +2,11 @@
 title: Debounce - Optimizing API call in JS
 date: 2023-12-06
 author: Kushal Bhargava
-image: { src: "/images/post-6.jpg", alt: "A picture of a coder" }
+image:
+  {
+    src: "/images/blog-header/JavaScript-Logo.png",
+    alt: "Optimizing API call in JS",
+  }
 description: In this project, we’ll build out a custom Astro component for post tags.
 draft: false
 category: JavaScript
@@ -35,31 +39,33 @@ Imagine a situation where the goal is to provide suggestions for a search query,
 Here is the debounce function, let’s understand it :
 
 ```jsx
-function debounce(func, timeout = 300){
+function debounce(func, timeout = 300) {
   let timer;
   return (...args) => {
     clearTimeout(timer);
-    timer = setTimeout(() => { func.apply(this, args); }, timeout);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, timeout);
   };
 }
 ```
 
 1. `function debounce(func, timeout = 300) {`
-    - This line defines a function named `debounce`.
-    - It takes two parameters: `func` (the function to be debounced) and `timeout` (the delay in milliseconds before the function is executed after the last invocation).
+   - This line defines a function named `debounce`.
+   - It takes two parameters: `func` (the function to be debounced) and `timeout` (the delay in milliseconds before the function is executed after the last invocation).
 2. `let timer;`
-    - This line declares a variable `timer` without assigning it a value. It will be used to store the reference to the setTimeout timer.
+   - This line declares a variable `timer` without assigning it a value. It will be used to store the reference to the setTimeout timer.
 3. `return (...args) => {`
-    - This line begins the definition of an arrow function that the `debounce` function will return.
-    - It uses the spread operator (`...args`) to capture any number of arguments passed to the debounced function.
+   - This line begins the definition of an arrow function that the `debounce` function will return.
+   - It uses the spread operator (`...args`) to capture any number of arguments passed to the debounced function.
 4. `clearTimeout(timer);`
-    - This line clears any existing timeout that was previously set. This is crucial to prevent the immediate execution of the function if the debounced function is called again within the specified timeout period.
+   - This line clears any existing timeout that was previously set. This is crucial to prevent the immediate execution of the function if the debounced function is called again within the specified timeout period.
 5. `timer = setTimeout(() => { func.apply(this, args); }, timeout);`
-    - This line sets a new timeout using `setTimeout`.
-    - The timeout function is an arrow function that calls the original `func` with the provided arguments (`args`) after the specified `timeout` period.
-    - The `apply` method is used to set the correct context (`this`) and pass the arguments to the original function.
+   - This line sets a new timeout using `setTimeout`.
+   - The timeout function is an arrow function that calls the original `func` with the provided arguments (`args`) after the specified `timeout` period.
+   - The `apply` method is used to set the correct context (`this`) and pass the arguments to the original function.
 6. `};`
-    - Closes the arrow function and the `debounce` function.
+   - Closes the arrow function and the `debounce` function.
 
 To use this `debounce` function, you can pass a function to it along with an optional timeout. The returned debounced function can then be invoked, and it will delay the execution of the original function until a specified amount of time has passed since the last invocation. This is particularly useful for scenarios like handling user input where you want to wait for a pause in typing before triggering an action.
 
@@ -69,35 +75,35 @@ Let's say I want to trigger the **`addContent`** function whenever the user has 
 
 ```jsx
 const addContent = debounce(async (text) => {
-    try {
-      let data = {
-        date: Date(),
-        content: text,
-      };
+  try {
+    let data = {
+      date: Date(),
+      content: text,
+    };
 
-      let res = await axios.post("/api/application/content", data, {
-        headers: {
-          "auth-token": Cookies.get("token"),
-        },
-      });
+    let res = await axios.post("/api/application/content", data, {
+      headers: {
+        "auth-token": Cookies.get("token"),
+      },
+    });
 
-      console.log(res.data);
+    console.log(res.data);
 
-      setContent(text);
-    } catch (error) {
-      console.log(error);
-    }
-  }, 1000);
+    setContent(text);
+  } catch (error) {
+    console.log(error);
+  }
+}, 1000);
 ```
 
 1. **Function Definition:**
-    - **`addContent`** is the main function that does something with the provided **`text`**.
+   - **`addContent`** is the main function that does something with the provided **`text`**.
 2. **Debouncing:**
-    - **`debounce`** is applied to **`addContent`** with a timeout of 1000 milliseconds.
-    - The result is a new function, **`addContent`**, that delays execution by 1 second.
+   - **`debounce`** is applied to **`addContent`** with a timeout of 1000 milliseconds.
+   - The result is a new function, **`addContent`**, that delays execution by 1 second.
 3. **Usage:**
-    - When you call **`addContent(text)`**, the debounced version is used.
-    - It ensures that if **`addContent`** is called frequently, it only executes once per second.
+   - When you call **`addContent(text)`**, the debounced version is used.
+   - It ensures that if **`addContent`** is called frequently, it only executes once per second.
 
 This helps prevent rapid and unnecessary calls, especially useful for scenarios like handling user input where you want to wait for a pause before triggering a time-consuming operation.
 
@@ -105,17 +111,17 @@ Now, you can call this function in **`handleInput`**. Whenever there is a change
 
 ```jsx
 const handleInput = (e) => {
-    const text = e.target.innerText;
-    addContent(text);    
+  const text = e.target.innerText;
+  addContent(text);
 };
 ```
 
 ```html
 <div
- contentEditable="true"
- onInput={handleInput}
- ref={contentEditableRef}
- ></div>
+  contenteditable="true"
+  onInput="{handleInput}"
+  ref="{contentEditableRef}"
+></div>
 ```
 
 # Conclusion

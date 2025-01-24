@@ -1,16 +1,21 @@
 import rss, { pagesGlobToRssItems } from "@astrojs/rss";
-
-import { formatBlogPosts } from "../js/utils";
-
-// const postImportResult = import.meta.glob("./blog/**/*.md", { eager: true });
-// const posts = formatBlogPosts(Object.values(postImportResult));
+import { getCollection } from 'astro:content';
 
 export async function GET(context) {
+  const blog = await getCollection('blog');
   return rss({
-    stylesheet: "/rss/styles.xsl",
-    title: "Buzz’s Blog",
-    description: "A humble Astronaut’s guide to the stars",
+    title: 'Buzz’s Blog',
+    description: 'A humble Astronaut’s guide to the stars',
     site: context.site,
-    items: await pagesGlobToRssItems(import.meta.glob("./blog/**/*.md")),
+    stylesheet: '/rss/styles.xsl',
+    items: blog.map((post) => ({
+      title: post.data.title,
+      pubDate: post.data.date,
+      description: post.data.description,
+      customData:`<author>${post.data.author}</author>`,
+      // Compute RSS link from post `id`
+      // This example assumes all posts are rendered as `/blog/[id]` routes
+      link: `/blog/${post.id}/`,
+    })),
   });
 }

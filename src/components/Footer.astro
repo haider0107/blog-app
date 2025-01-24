@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import socialData from "../data/socialData";
 
 ---
 
@@ -7,6 +8,17 @@ import { Icon } from "astro-icon/components";
   <div>
     <small>
       Copyright &copy; <span id="copyright"></span> | All rights reserved
+    </small>
+    <small>
+      <div class="social">
+        {
+          socialData.map(ele => (
+            <a href={ele.href}>
+              <Icon name={ele.icon} size={25}/>
+            </a>
+          ))
+        }
+      </div>
     </small>
     <small>
       <a href="/rss.xml">
