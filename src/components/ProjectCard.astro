@@ -19,11 +19,10 @@ const { name, author = "Kushal Bhargava", image, desc } = data;
     <Image
       src={image}
       alt={name}
-      width="400"
-      height="250"
+      width={400} 
+      height={250} 
       format="webp"
-      fit="cover"
-      quality={80}
+      class="responsive-landscape"
     />
   </a>
   <div class="content">

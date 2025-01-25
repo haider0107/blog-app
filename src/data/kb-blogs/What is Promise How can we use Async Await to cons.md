@@ -12,7 +12,7 @@ draft: false
 category: JavaScript
 ---
 
-# What is asynchronous js, promises and how to consume them ?
+<!-- # What is asynchronous js, promises and how to consume them ? -->
 
 JavaScript is a single-threaded language, meaning it has only one main execution thread, and code is generally executed sequentially from top to bottom. However, JavaScript has introduced the concepts of asynchronicity and the event loop to efficiently handle non-blocking operations, such as I/O operations and network requests, without freezing the entire application.
 

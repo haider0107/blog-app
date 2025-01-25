@@ -12,7 +12,7 @@ draft: false
 category: JavaScript
 ---
 
-# Story behind naming of JavaScript
+<!-- # Story behind naming of JavaScript -->
 
 Thinking about JavaScript, first thing we think of is what is the difference between Java and JavaScript but when the JavaScript was created, it was created for entirely different purpose. In this blog we are going to learn about how the JavaScript got Java in it.
 

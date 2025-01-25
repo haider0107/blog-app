@@ -7,12 +7,12 @@ image:
     src: "/images/blog-header/JavaScript-Logo.png",
     alt: "Optimizing API call in JS",
   }
-description: In this project, we’ll build out a custom Astro component for post tags.
+description: In simple terms, debounce acts as a regulator for your functions, preventing them from causing congestion and ultimately enhancing the overall user experience.
 draft: false
 category: JavaScript
 ---
 
-# Debounce - Optimizing API call in JS
+<!-- # Debounce - Optimizing API call in JS -->
 
 Consider a scenario where a search bar initiates a request for suggestions with each keystroke. Rapid typing can lead to an excess of unnecessary requests, impacting the app's performance.
 

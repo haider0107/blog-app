@@ -12,7 +12,7 @@ draft: false
 category: JavaScript
 ---
 
-# What is Epoch time ? Also know as UNIX time or POSIX time
+<!-- # What is Epoch time ? Also know as UNIX time or POSIX time -->
 
 Epoch time, also known as Unix time or POSIX time, is a system for representing timestamps as a single integer value, counting the number of seconds that have elapsed since a specific reference point called the "epoch." This reference point is typically defined as 00:00:00 Coordinated Universal Time (UTC) on January 1, 1970.
 

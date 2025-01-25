@@ -287,6 +287,15 @@ body {
   line-height: var(--lh-1-1);
 }
 
+.responsive-landscape {
+  display: block;
+  width: 100%; /* Allow it to fill the card width */
+  height: 250px; /* Fixed height for the image */
+  object-fit: cover; /* Ensure the image scales and crops to fit within the fixed height */
+  border-radius: 8px; /* Optional: Rounded corners */
+  margin: 0 auto; /* Center if needed */
+}
+
 .h1 {
   font-size: var(--fs-2xl);
   max-width: var(--content-xs);
@@ -690,7 +699,9 @@ header {
 .hero-image {
   box-shadow: var(--shadow-md);
   object-fit: cover;
-
+  width: 100%; /* Allow it to fill the card width */
+  height: auto; /* Fixed height for the image */
+  max-height: 500px;
   @media (--lg) {
     border-radius: var(--radius-md);
   }

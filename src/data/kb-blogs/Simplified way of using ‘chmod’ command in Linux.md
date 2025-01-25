@@ -12,7 +12,7 @@ draft: false
 category: Linux
 ---
 
-# Simplified way of using ‘chmod’ command in Linux
+<!-- # Simplified way of using ‘chmod’ command in Linux -->
 
 One of the most common Linux command that we use in our day-to-day life to execute or give permission to a file in Linux system. One way to give permission to a file is through **Octal Mode.** One of the easiest way set permission on a file. So in this article we are going to learn how to use octal mode.
 

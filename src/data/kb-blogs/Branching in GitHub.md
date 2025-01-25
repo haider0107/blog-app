@@ -8,7 +8,7 @@ draft: false
 category: GitHub
 ---
 
-# Branching in GitHub
+<!-- # Branching in GitHub -->
 
 Branching in GitHub is a way to create different versions of your project's code. Imagine your project as a tree, and the main branch as its trunk. When you create a new branch, it's like growing a new branch from the trunk.
 

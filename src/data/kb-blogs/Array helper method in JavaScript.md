@@ -12,7 +12,7 @@ draft: false
 category: JavaScript
 ---
 
-# Array helper method in JavaScript
+<!-- # Array helper method in JavaScript -->
 
 Array helper methods in JavaScript are built-in functions that provide a concise and efficient way to work with arrays. They allow you to perform common operations, such as iterating, filtering, mapping, and reducing elements, without the need for explicit loops.
 
