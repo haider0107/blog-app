@@ -3,11 +3,10 @@ title: Array helper method in JavaScript
 date: 2023-08-05
 author: Kushal Bhargava
 image:
-  {
-    src: "/images/blog-header/JavaScript-Logo.png",
-    alt: "Array helper method in JavaScript",
-  }
+  src: "/images/blog-header/JavaScript-Logo.png"
+  alt: "Array helper method in JavaScript"
 description: Array helper methods in JavaScript are built-in functions that provide a concise and efficient way to work with arrays.
+hashnode: null
 draft: false
 category: JavaScript
 ---

@@ -6,7 +6,11 @@
 import { Image } from "astro:assets";
 import { slugify, formatDate } from "../js/utils";
 
-const { category, title, author, date, image } = Astro.props;
+const { category, title, hashnode, author, date, image } = Astro.props;
+
+console.log(hashnode);
+
+
 ---
 
 <header>
@@ -31,4 +35,15 @@ const { category, title, author, date, image } = Astro.props;
     quality={80}
     class="hero-image"
   />
+
+  {hashnode && (
+    <div class="hashNode-container">
+    <h4>
+      <a class="hashNode" href={hashnode} target="_blank" rel="noopener noreferrer">
+        <img src="https://img.icons8.com/?size=100&id=HnB8zGOh5xgd&format=png&color=000000" alt="Hashnode" class="hashNode-icon" />
+        Also available on Hashnode
+      </a>
+    </h3>
+  </div>
+  )}
 </header>

@@ -3,12 +3,11 @@ title: Story behind naming of JavaScript
 date: 2023-06-25
 author: Kushal Bhargava
 image:
-  {
-    src: "/images/blog-header/JavaScript-Logo.png",
-    alt: "Optimizing API call in JS",
-  }
+  src: "/images/blog-header/JavaScript-Logo.png"
+  alt: "Optimizing API call in JS"
 description: In this blog we are going to learn about how the JavaScript got Java in it.
 draft: false
+hashnode: null
 category: JavaScript
 ---
 

@@ -22,7 +22,7 @@ import { formatBlogPosts } from "../js/utils";
 
 const { data } = Astro.props;
 
-const { title, description, date, category, author, image } = data;
+const { title, description, date, hashnode, category, author, image } = data;
 
 const allPosts = await getCollection('blog');
 
@@ -45,7 +45,7 @@ const relatedPosts = formattedPosts
 // Requires the name of the collection as an argument.
 
 
-// console.log(allPosts[0]);
+// console.log(title);
 
 ---
 
@@ -56,7 +56,7 @@ const relatedPosts = formattedPosts
   {data}
   robots={data.robots}
 >
-  <PostHeader {title} {description} {date} {category} {image} {author} />
+  <PostHeader {title} {description} {date} {hashnode} {category} {image} {author} />
   <div class="post-content">
     <div class="content">
       <slot />
@@ -76,4 +76,15 @@ const relatedPosts = formattedPosts
       }
     </div>
   </div>
+
+  {hashnode && (
+    <div class="hashNode-container-footer">
+      <h4>
+        <a class="hashNode" href={hashnode} target="_blank" rel="noopener noreferrer">
+          <img src="https://img.icons8.com/?size=100&id=HnB8zGOh5xgd&format=png&color=000000" alt="Hashnode" class="hashNode-icon" />
+          Found it helpful? Let me know on Hashnode!
+        </a>
+      </h3>
+    </div>
+  )}
 </MainLayout>

@@ -3,11 +3,10 @@ title: What is asynchronous js, promises and how to consume them ?
 date: 2023-09-04
 author: Kushal Bhargava
 image:
-  {
-    src: "/images/blog-header/JS-promis.png",
-    alt: "What is asynchronous js, promises and how to consume them ?",
-  }
+  src: "/images/blog-header/JS-promis.png"
+  alt: "What is asynchronous js, promises and how to consume them ?"
 description: Epoch time is commonly used in various applications for timestamping, measuring time intervals, and performing time-related calculations.
+hashnode: null
 draft: false
 category: JavaScript
 ---

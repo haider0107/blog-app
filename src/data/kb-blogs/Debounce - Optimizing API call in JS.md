@@ -3,11 +3,10 @@ title: Debounce - Optimizing API call in JS
 date: 2023-12-06
 author: Kushal Bhargava
 image:
-  {
-    src: "/images/blog-header/JavaScript-Logo.png",
-    alt: "Optimizing API call in JS",
-  }
+  src: "/images/blog-header/JavaScript-Logo.png"
+  alt: "Optimizing API call in JS"
 description: In simple terms, debounce acts as a regulator for your functions, preventing them from causing congestion and ultimately enhancing the overall user experience.
+hashnode: https://haider101.hashnode.dev/debounce-optimizing-api-call-in-js
 draft: false
 category: JavaScript
 ---

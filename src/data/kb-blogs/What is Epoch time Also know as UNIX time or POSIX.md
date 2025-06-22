@@ -3,12 +3,11 @@ title: What is Epoch time ? Also know as UNIX time or POSIX time
 date: 2023-08-17
 author: Kushal Bhargava
 image:
-  {
-    src: "https://www.unixtutorial.org/images/posts/unix-epoch.jpg",
-    alt: "UNIX time or POSIX time",
-  }
+  src: "https://www.unixtutorial.org/images/posts/unix-epoch.jpg"
+  alt: "UNIX time or POSIX time"
 description: Epoch time is commonly used in various applications for timestamping, measuring time intervals, and performing time-related calculations.
 draft: false
+hashnode: null
 category: JavaScript
 ---
 
@@ -31,7 +30,7 @@ const currentEpochTime = Date.now();
 console.log(currentEpochTime);
 
 // Output
-1692274374768 // It will be different when you run it
+1692274374768; // It will be different when you run it
 ```
 
 This code snippet will output the number of milliseconds that have passed since the Unix epoch. You can also convert this time into seconds by dividing the milliseconds by 1000:
@@ -43,7 +42,7 @@ const currentEpochTimeInSeconds = Math.floor(Date.now() / 1000);
 console.log(currentEpochTimeInSeconds);
 
 // Output
-1692274418 // It will be different when you run it
+1692274418; // It will be different when you run it
 ```
 
 APIs usually pass epoch time in second’s, so you have to first convert epoch second’s time in milliseconds.
@@ -69,35 +68,37 @@ console.log("Local Date and Time:", localDateTimeString);
 
 In above code snippet we have extracted date and time both, but if we want to extract only date or time, we can use following `Date` methods :
 
-- `getFullYear()`	Get year as a four digit number (yyyy)
-- `getMonth()`	Get month as a number (0-11)
-- `getDate()`	Get day as a number (1-31)
-- `getDay()`	Get weekday as a number (0-6)
-- `getHours()`	Get hour (0-23)
-- `getMinutes()`	Get minute (0-59)
-- `getSeconds()`	Get second (0-59)
-- `getMilliseconds()`	 Get millisecond (0-999)
-- `getTime()`	Get time (milliseconds since January 1, 1970)
+- `getFullYear()` Get year as a four digit number (yyyy)
+- `getMonth()` Get month as a number (0-11)
+- `getDate()` Get day as a number (1-31)
+- `getDay()` Get weekday as a number (0-6)
+- `getHours()` Get hour (0-23)
+- `getMinutes()` Get minute (0-59)
+- `getSeconds()` Get second (0-59)
+- `getMilliseconds()` Get millisecond (0-999)
+- `getTime()` Get time (milliseconds since January 1, 1970)
 
 Now we will use above method to extract current time form Epoch or UNIX time :
 
 ```jsx
 function convertEpochToLocalTime(epochTimestamp) {
   const date = new Date(epochTimestamp * 1000); // Multiply by 1000 to convert seconds to milliseconds
-  
+
   const hours = date.getHours();
   const minutes = date.getMinutes();
   const seconds = date.getSeconds();
-  
+
   let formattedHours = hours % 12;
   if (formattedHours === 0) {
     formattedHours = 12; // 12:00 AM or 12:00 PM
   }
-  
-  const amOrPm = hours < 12 ? 'AM' : 'PM';
-  
-  const formattedTime = `${formattedHours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} ${amOrPm}`;
-  
+
+  const amOrPm = hours < 12 ? "AM" : "PM";
+
+  const formattedTime = `${formattedHours}:${minutes
+    .toString()
+    .padStart(2, "0")}:${seconds.toString().padStart(2, "0")} ${amOrPm}`;
+
   return formattedTime;
 }
 
@@ -126,14 +127,14 @@ The **`toUTCString()`** method of the **`Date`** object is used to obtain a stri
 
 Now, if we want to extract date or time we can use following `Date` methods :
 
-- `getUTCDate()`	Returns the UTC date
-- `getUTCFullYear()`	Returns the UTC year
-- `getUTCMonth()`	Returns the UTC month
-- `getUTCDay()`	 Returns the UTC day
-- `getUTCHours()`	Returns the UTC hour
-- `getUTCMinutes()`	Returns the UTC minutes
-- `getUTCSeconds()`	Returns the UTC seconds
-- `getUTCMilliseconds()`	Returns the UTC milliseconds
+- `getUTCDate()` Returns the UTC date
+- `getUTCFullYear()` Returns the UTC year
+- `getUTCMonth()` Returns the UTC month
+- `getUTCDay()` Returns the UTC day
+- `getUTCHours()` Returns the UTC hour
+- `getUTCMinutes()` Returns the UTC minutes
+- `getUTCSeconds()` Returns the UTC seconds
+- `getUTCMilliseconds()` Returns the UTC milliseconds
 
 Now we will use above method to extract current time form Epoch or UNIX time :
 

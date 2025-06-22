@@ -3,11 +3,10 @@ title: Simplified way of using ‘chmod’ command in Linux
 date: 2023-07-03
 author: Kushal Bhargava
 image:
-  {
-    src: "/images/blog-header/linux-logo.png",
-    alt: "Simplified way of using ‘chmod’ command in Linux",
-  }
+  src: "/images/blog-header/linux-logo.png"
+  alt: "Simplified way of using ‘chmod’ command in Linux"
 description: One of the most common Linux command that we use in our day-to-day life to execute or give permission to a file in Linux system.
+hashnode: null
 draft: false
 category: Linux
 ---

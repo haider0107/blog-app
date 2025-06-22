@@ -3,11 +3,10 @@ title: How to Manage Users and Groups Efficiently in Linux
 date: 2025-04-22
 author: Kushal Bhargava
 image:
-  {
-    src: "/images/blog-header/linux-logo.png",
-    alt: "How to Manage Users and Groups Efficiently in Linux",
-  }
+  src: "/images/blog-header/linux-logo.png"
+  alt: "How to Manage Users and Groups Efficiently in Linux"
 description: User management in Linux means creating, modifying, and deleting user accounts on the system. It includes setting usernames passwords, and assigning users to groups.
+hashnode: https://haider101.hashnode.dev/how-to-manage-users-and-groups-efficiently-in-linux
 draft: false
 category: Linux
 ---
@@ -64,13 +63,13 @@ Suppose a new employee has joined the organization and needs to be added to the 
 
 ## Creating a User
 
-Lets create user John and see user in `/etc/passwd` and see user password in `/etc/shadow` 
+Lets create user John and see user in `/etc/passwd` and see user password in `/etc/shadow`
 
 ```bash
 sudo adduser john
 ```
 
-Now, lets go see user in `/etc/passwd` 
+Now, lets go see user in `/etc/passwd`
 
 ![image.png](../blog-images/user-mnt/image%201.png)
 
@@ -98,15 +97,15 @@ Each field is separated by a colon `:`. Here's what each one means:
 
 1. **`john`** – **Username**: The same username as in `/etc/passwd`.
 2. **`$y$j9T$7DQrMgJW09.b1JtAlPjVm1$PqMm3Mr5kbIUXeZTEhLGlo/iuK8NdDCc6RZrE/.9Pp7`** – **Encrypted password**:
-    - Starts with `$` and includes the hash algorithm and salt.
-    - This means the password is securely hashed.
+   - Starts with `$` and includes the hash algorithm and salt.
+   - This means the password is securely hashed.
 3. **`20199`** – **Last password change**: Days since Jan 1, 1970 (Unix epoch). In this case, it's the date the password was last changed.
 4. **`0`** – **Minimum days between password changes**: User cannot change the password for 0 days after last change (i.e., can change it immediately).
 5. **`99999`** – **Maximum days before password must be changed**: Password expires after 99999 days (basically never expires).
 6. **`7`** – **Warning period**: User will be warned 7 days before the password expires.
-7.  **(empty)** – **Inactive period**: Number of days after password expires before account is disabled (empty means not set).
-8.  **(empty)** – **Account expiration date**: Days since Jan 1, 1970, when account will be disabled (empty means account doesn't expire).
-9.  **(empty)** – **Reserved field**: Not used.
+7. **(empty)** – **Inactive period**: Number of days after password expires before account is disabled (empty means not set).
+8. **(empty)** – **Account expiration date**: Days since Jan 1, 1970, when account will be disabled (empty means account doesn't expire).
+9. **(empty)** – **Reserved field**: Not used.
 
 ## Create a Group
 
@@ -137,7 +136,7 @@ We can also use the `getent` command to view group details from the system.
 
 Now that we have created the user **john** and the group **developer**, we’ll add **john** to the **developer** group.
 
-After adding, we can verify the changes in the  `/etc/group` files.
+After adding, we can verify the changes in the `/etc/group` files.
 
 ```bash
 sudo usermod -aG developers john
@@ -151,7 +150,6 @@ sudo usermod -aG developers john
 It **adds user `john` to the `developers` group**, while keeping him in all his existing groups too.
 
 > Without the -a flag, john would be removed from all other groups and added only to developers. So -a is very important here.
-> 
 
 Let's check if the user is added to the `/etc/group` file.
 
@@ -175,13 +173,13 @@ Suppose a user has left the organization, and we no longer need their access on 
 
 ## Remove User from a Group
 
- To remove a user from a group, use the `deluser username groupname` command.
+To remove a user from a group, use the `deluser username groupname` command.
 
 ```bash
 sudo deluser john developers
 ```
 
-Now, let's check the group file located in `/etc/group` 
+Now, let's check the group file located in `/etc/group`
 
 ![image.png](../blog-images/user-mnt/image%207.png)
 
@@ -195,7 +193,7 @@ To delete a group from the system, use the `delgroup groupname` command.
 sudo delgroup developers
 ```
 
-Now, let's check the group file located in `/etc/group` 
+Now, let's check the group file located in `/etc/group`
 
 ![image.png](../blog-images/user-mnt/image%208.png)
 

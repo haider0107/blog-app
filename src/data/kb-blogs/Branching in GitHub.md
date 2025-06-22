@@ -1,9 +1,12 @@
 ---
 title: Branching in GitHub
-date: 2023-7-12
+date: 2023-07-12
 author: Kushal Bhargava
-image: { src: "/images/blog-header/git-logo.png", alt: "Github Logo" }
+image:
+  src: "/images/blog-header/git-logo.png"
+  alt: "Github Logo"
 description: Imagine your project as a tree, and the main branch as its trunk. When you create a new branch, it's like growing a new branch from the trunk.
+hashnode: null
 draft: false
 category: GitHub
 ---
@@ -58,7 +61,7 @@ where `-b` is branch name. This will create and switch to `testing` branch at th
 
 # Merging Branches
 
- Before **Merging**, A**dd** and C**ommit** your changes in that branch.
+Before **Merging**, A**dd** and C**ommit** your changes in that branch.
 
 - You can merge your branch to the main branch or main branch to your branch
 - To merge, first you have to `checkout` to that branch first. For example, if you want to merge `testing` branch to `main`, you have to `checkout` to main branch
@@ -80,7 +83,7 @@ Here is a practical example:
 
 ![Untitled](../blog-images/git1/Untitled%205.png)
 
-Now, if you go to your GitHub page you can see that it is available there : 
+Now, if you go to your GitHub page you can see that it is available there :
 
 ![Untitled](../blog-images/git1/Untitled%206.png)
 
@@ -93,7 +96,7 @@ Here is how you can delete a branch :
 ```
 $ git branch -d [branch name]
 
-or to force delete 
+or to force delete
 
 $ git branch -D [branch name]
 ```
