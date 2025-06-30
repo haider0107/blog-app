@@ -1,0 +1,14 @@
+name: blog-app
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/dockerfile.prod
+    ports:
+      - "8080:8080"
+    networks:
+      - blog-app
+
+networks:
+  blog-app:
