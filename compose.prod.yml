@@ -1,0 +1,30 @@
+services:
+  blog-app:
+    image: kushal0107/fullstack-frontend:build-5296b9546b42e564b6e7ec597be8081cb524fca0
+    deploy:
+      replicas: 1
+      update_config:
+        order: start-first
+        failure_action: rollback
+        delay: 10s
+      rollback_config:
+        parallelism: 1
+        order: start-first
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - "-f"
+        - http://localhost:8080
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - blog-network
+      - caddy-proxy_shared-net
+networks:
+  blog-network:
+    driver: overlay
+  caddy-proxy_shared-net:
+    external: true
