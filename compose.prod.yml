@@ -1,6 +1,6 @@
 services:
   blog-app:
-    image: kushal0107/blog-app:22812d874a204b22332c274d9b0fc70cddc2651d
+    image: kushal0107/blog-app:build-d9e82b9a82a1ab5165f0fc45ed3da224409d8dcb
     deploy:
       replicas: 1
       update_config:
@@ -14,7 +14,7 @@ services:
       test:
         - CMD
         - curl
-        - "-f"
+        - '-f'
         - http://localhost:8080
       interval: 30s
       timeout: 10s
