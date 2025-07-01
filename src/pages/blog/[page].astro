@@ -31,7 +31,7 @@ const { page }: { page: any } = Astro.props;
         page.data.map((post:any) => (
           <PostCard
             data={post.data}
-            url={`/blog/${post.id}`}
+            url={`/blog/${post.id}/`}
             tagType="h2"
           />
         ))
