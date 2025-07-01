@@ -52,7 +52,7 @@ const formattedPosts = formatBlogPosts(allPosts, {
         formattedPosts.map((post : Post) => (
           <PostCard
             data={post.data}
-            url={`/blog/${post.id}`}
+            url={`/blog/${post.id}/`}
             tagType="h3"
           />
         ))
