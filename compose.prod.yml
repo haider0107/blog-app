@@ -1,6 +1,6 @@
 services:
   blog-app:
-    image: kushal0107/fullstack-frontend:build-5296b9546b42e564b6e7ec597be8081cb524fca0
+    image: kushal0107/blog-app:22812d874a204b22332c274d9b0fc70cddc2651d
     deploy:
       replicas: 1
       update_config:
