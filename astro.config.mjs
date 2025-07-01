@@ -9,5 +9,5 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://kb-blogs.in",
   integrations: [icon(), sitemap()],
-  trailingSlash: "always",
+  trailingSlash: "ignore",
 });
