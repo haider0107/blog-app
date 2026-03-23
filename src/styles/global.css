@@ -790,3 +790,50 @@ header {
 .sidebar [aria-label="Blog categories"] {
   margin-block: 0;
 }
+
+/* ===== SKILLS SECTION ===== */
+.skill-set {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skill-category {
+  background-color: hsl(var(--muted));
+  border: 1px solid hsl(var(--txt) / 0.1);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.skill-label {
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  opacity: 0.5;
+}
+
+.skill-view {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2xs);
+}
+
+/* Force every pill to fill its grid cell completely */
+.skill-view a,
+.skill-view .link {
+  width: 100% !important;
+  justify-content: center !important;
+}
+
+@media (width < 768px) {
+  .skill-set {
+    grid-template-columns: 1fr;
+  }
+}

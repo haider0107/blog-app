@@ -3,16 +3,25 @@
 import { Icon } from "astro-icon/components";
 import Link from "../components/Link.astro";
 import socialData from "../data/socialData";
-import projectData from "../data/projectData"
+import projectData from "../data/projectData";
 import MainLayout from "../layouts/MainLayout.astro";
 import skillsData from "../data/skillsData";
 import ProjectCard from "../components/ProjectCard.astro";
+
+const skillCategories: { label: string; key: keyof typeof skillsData }[] = [
+  { label: "Frontend", key: "frontend" },
+  { label: "Backend", key: "backend" },
+  { label: "Languages", key: "language" },
+  { label: "Database", key: "database" },
+  { label: "DevOps & Cloud", key: "devops" },
+  { label: "Tools", key: "tools" },
+];
 ---
 
 <MainLayout title="About" description="My About Page">
   <section class="container about" aria-label="About Me">
     <img
-      src="/images/headshot.jpeg"
+      src="/images/headshort2.jpeg"
       alt="My headshot"
       width="200"
       height="330"
@@ -20,18 +29,17 @@ import ProjectCard from "../components/ProjectCard.astro";
     <div class="content">
       <h1 class="h1">About Me</h1>
       <p>
-        My name is <b>Kushal Bhargava</b> and I am a versatile Software Engineer who adapts to any tech stack with ease. 
-        Always eager to learn, I stay updated with the latest technologies to build efficient, 
-        user-friendly solutions.
+        My name is <b>Kushal Bhargava</b> and I am a Java Full Stack Developer
+        with 2+ years of experience building secure, high-performance web
+        applications. I enjoy working across the full stack — from designing
+        REST APIs and microservices to crafting fast, clean frontends.
       </p>
       <div class="social">
-        {
-          socialData.map(ele => (
-            <a href={ele.href}>
-              <Icon name={ele.icon} size={50}/>
-            </a>
-          ))
-        }
+        {socialData.map((ele) => (
+          <a href={ele.href}>
+            <Icon name={ele.icon} size={50} />
+          </a>
+        ))}
       </div>
       <div class="social">
         <Link
@@ -43,101 +51,61 @@ import ProjectCard from "../components/ProjectCard.astro";
           href="mailto:kushal.bhargava01@gmail.com"
           style="primary"
           text="Contact Me"
-       />
+        />
       </div>
     </div>
   </section>
+
   <section class="container skill" aria-label="Skills">
     <h1>Skills</h1>
-    <br>
+    <br />
     <div class="skill-set">
-      <div class="skill-view">
-        {
-          skillsData.frontend.map(ele => (
-          <Link
-          text={ele.name}
-          href=""
-          style="primary"
-          borderVisible={false}
-          isFilled={true}
-          icon={{
-            name: `${ele.icon}`,
-            side: "left",
-          }}
-        />
-          ))
-        }
-      </div>
-      <div class="skill-view">
-        {
-          skillsData.backend.map(ele => (
-          <Link
-          text={ele.name}
-          href=""
-          style="primary"
-          borderVisible={false}
-          isFilled={true}
-          icon={{
-            name: `${ele.icon}`,
-            side: "left",
-          }}
-        />
-          ))
-        }
-      </div>
-      <div class="skill-view">
-        {
-          skillsData.labguage.map(ele => (
-          <Link
-          text={ele.name}
-          href=""
-          style="primary"
-          borderVisible={false}
-          isFilled={true}
-          icon={{
-            name: `${ele.icon}`,
-            side: "left",
-          }}
-        />
-          ))
-        }
-      </div>
-      <div class="skill-view">
-        {
-          skillsData.DataBase.map(ele => (
-          <Link
-          text={ele.name}
-          href=""
-          style="primary"
-          borderVisible={false}
-          isFilled={true}
-          icon={{
-            name: `${ele.icon}`,
-            side: "left",
-          }}
-        />
-          ))
-        }
-      </div>
+      {skillCategories.map(({ label, key }) => (
+        <div class="skill-category">
+          <h3 class="skill-label">{label}</h3>
+          <div class="skill-view">
+            {skillsData[key].map((ele) => (
+              <Link
+                text={ele.name}
+                href=""
+                style="primary"
+                borderVisible={false}
+                isFilled={true}
+                icon={{
+                  name: `${ele.icon}`,
+                  side: "left",
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   </section>
-  <br>
-  <br>
+
+  <br />
+  <br />
+
   <section class="container project">
-    <h1>Project</h1>
-    <br>
+    <h1>Projects</h1>
+    <br />
     <div class="project-container">
-      {
-        projectData.map(ele => (
-          <ProjectCard 
-            data={ele}
-            url={`${ele.link}`}
-            tagType="h2"
-          />
-        ))
-      }
+      {projectData.map((ele) => (
+        <ProjectCard data={ele} url={`${ele.link}`} tagType="h2" />
+      ))}
     </div>
   </section>
-  <br>
-  <br>
+
+  <br />
+  <br />
 </MainLayout>
+
+<style>
+  .skill-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.5;
+    margin-bottom: 0.5rem;
+  }
+</style>
