@@ -1,6 +1,6 @@
 services:
   blog-app:
-    image: kushal0107/blog-app:build-7cee11a5c2b282fc01f65a43b557eed9a766e7b3
+    image: kushal0107/blog-app:build-d2acf0083db6cd9948a108559284f55c0cf1acc0
     deploy:
       replicas: 1
       update_config:
