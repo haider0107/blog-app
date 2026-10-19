@@ -6,7 +6,7 @@ image:
   src: "/images/blog-header/system-design/system-design-architecture-diagram.png"
   alt: "Observer Design Pattern in Java"
 description: In this blog, we will understand the Observer Pattern, its structure, and its implementation in Java using a simple Weather Station example.
-hashnode: null
+hashnode: https://haider101.hashnode.dev/observer-design-pattern-a-simple-guide-with-a-weather-station-example
 draft: false
 category: System Design
 ---
