@@ -9,11 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.11",
-    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
     "@iconify-json/skill-icons": "^1.2.0",
     "@iconify-json/tabler": "^1.2.14",
-    "astro": "^5.1.6",
+    "astro": "^7.4.4",
     "astro-icon": "^1.1.5",
     "postcss": "^8.5.1",
     "postcss-preset-env": "^10.1.3"
