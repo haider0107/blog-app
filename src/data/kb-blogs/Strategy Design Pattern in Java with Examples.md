@@ -53,9 +53,9 @@ The pattern has three main components:
 
 The **Client** selects the required strategy and provides it to the context.
 
-[12345image.jfif](../blog-images/system-design/strategy-design-pattern/12345image.jfif)
+![12345image.png](../blog-images/system-design/strategy-design-pattern/12345image.png)
 
-[1234image.jfif](../blog-images/system-design/strategy-design-pattern/1234image.jfif)
+![1234image.png](../blog-images/system-design/strategy-design-pattern/1234image.png)
 
 ## 5. Implementation 1: Vehicle Driving Modes
 
